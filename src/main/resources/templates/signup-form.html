@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base::head"></head>
+<body class="container-xxl">
+<header th:replace="base::nav-header"></header>
+
+<form method="POST" th:action="@{/signup}" th:object="${userRegDto}">
+    <!--    <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
+    <div class="mb-3 row justify-content-center">
+        <div class="col-sm-7">
+            <h1 class="h3 mb-3 fw-normal">New user registration</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5" th:if="${#fields.hasErrors('userName')}">
+            <ul>
+                <li class="text-danger" th:each="err : ${#fields.errors('userName')}" th:text="${err}" />
+            </ul>
+        </div>
+    </div>
+    <div class="mb-3 row justify-content-center">
+        <div class="col-sm-2">
+            <label>Email address</label>
+        </div>
+        <div class="col-sm-5">
+            <input type="email" class="form-control form-control-sm" name="userName" id="userName" placeholder="name@example.com" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5" th:if="${#fields.hasErrors('firstName')}">
+            <ul>
+                <li class="text-danger" th:each="err : ${#fields.errors('firstName')}" th:text="${err}" />
+            </ul>
+        </div>
+    </div>
+    <div class="mb-3 row justify-content-center">
+        <div class="col-sm-2">
+            <label>First name</label>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" class="form-control form-control-sm" name="firstName" id="firstName" placeholder="John" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5" th:if="${#fields.hasErrors('lastName')}">
+            <ul>
+                <li class="text-danger" th:each="err : ${#fields.errors('lastName')}" th:text="${err}" />
+            </ul>
+        </div>
+    </div>
+    <div class="mb-3 row justify-content-center">
+        <div class="col-sm-2">
+            <label>Last name</label>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" class="form-control form-control-sm" name="lastName" id="lastName" placeholder="Smith" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5" th:if="${#fields.hasErrors('address')}">
+            <ul>
+                <li class="text-danger" th:each="err : ${#fields.errors('address')}" th:text="${err}"  />
+            </ul>
+        </div>
+    </div>
+        <div class="mb-3 row justify-content-center">
+        <div class="col-sm-2">
+            <label>Address</label>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" class="form-control form-control-sm" name="address" id="address" placeholder="Moscow. Tverskaya 1" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5" th:if="${#fields.hasErrors('phone')}">
+            <ul>
+                <li class="text-danger" th:each="err : ${#fields.errors('phone')}" th:text="${err}" />
+            </ul>
+        </div>
+    </div>
+        <div class="mb-3 row justify-content-center">
+        <div class="col-sm-2">
+            <label>Phone</label>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" class="form-control form-control-sm" name="phone" id="phone" placeholder="+1 800 5551122" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5" th:if="${#fields.hasErrors('password')}">
+            <ul>
+                <li class="text-danger" th:each="err : ${#fields.errors('password')}" th:text="${err}" />
+            </ul>
+        </div>
+    </div>
+    <div class="mb-3 row justify-content-center">
+        <div class="col-sm-2">
+            <label>Password</label>
+        </div>
+        <div class="col-sm-5">
+            <input type="password" class="form-control form-control-sm" name="password" id="password" placeholder="Password" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5" th:if="${#fields.hasErrors('repPassword')}">
+            <ul>
+                <li class="text-danger" th:each="err : ${#fields.errors('repPassword')}" th:text="${err}" />
+            </ul>
+        </div>
+    </div>
+        <div class="mb-3 row justify-content-center">
+        <div class="col-sm-2">
+            <label>Repeat password</label>
+        </div>
+        <div class="col-sm-5">
+            <input type="password" class="form-control form-control-sm" name="repPassword" id="repPassword" placeholder="Repeat password" />
+        </div>
+    </div>
+
+    <div class="mb-3 row justify-content-center">
+        <div class="col-sm-7">
+            <button class="mt-2 btn btn-lg w-100 btn-primary" type="submit">Sign in</button>
+        </div>
+    </div>
+</form>
+<footer th:replace="base::footer"></footer>
+</body>
+</html>
