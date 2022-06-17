@@ -3,8 +3,60 @@
 <head th:replace="base::head"></head>
 <body class="container-xxl">
 <header th:replace="base::nav-header"></header>
+<div class="row justify-content-center">
+<!--    <div class="form-group">-->
+<!--        <div class="mb-3 row justify-content-center">-->
+<!--            <div class="col-sm-7">-->
+<!--                <div>-->
+<!--                    <div th:if="${param.error} != null">-->
+<!--                        <div class="alert alert-danger col-xs-offset-1 col-xs-10">-->
+<!--                            <p>Invalid login or password</p>&lt;!&ndash;                        <p th:text="#{login.error}"></p>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div th:if="${param.logout} != null">-->
+<!--                        <div class="alert alert-success col-xs-offset-1 col-xs-10">-->
+<!--                            <p>Log out success</p>&lt;!&ndash;                        <p th:text="#{login.logout}"></p>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
-home
+    <form method="POST" th:action="@{/admin/catalog/categories}">
+        <!--    <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
+        <div class="mb-3 row justify-content-center">
+            <div class="col-sm-7">
+                <h1 class="h3 mb-3 fw-normal">Add new category</h1>
+            </div>
+        </div>
+
+        <div class="mb-3 row justify-content-center">
+            <div class="col-sm-2">
+                <label>Category name</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Category name" />
+            </div>
+        </div>
+
+        <div class="mb-3 row justify-content-center">
+            <div class="col-sm-2">
+                <label>Description</label>
+            </div>
+            <div class="col-sm-5">
+                <textarea rows="5" type="text" class="form-control" name="description" id="description" placeholder="Description"></textarea>
+            </div>
+        </div>
+
+        <div class="mb-3 row justify-content-center">
+            <div class="col-sm-7">
+                <button class="mt-2 w-100 btn btn-lg btn-primary" type="submit">Add category</button>
+            </div>
+        </div>
+
+    </form>
+</div>
 <footer th:replace="base::footer"></footer>
 </body>
 </html>
